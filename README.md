@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# Integrantes do grupo e Informações
+• João Paulo Nunes Pereira (201610658) <br/>
+• Luan Martins Correa (202023809) <br/>
+• Nicolas Prates Anacleto (201816957) <br/>
+• Thailon dorneles (202014087) <br/>
+• Vinicius Faitão (202065022) <br/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Processos e tecnologias utilizadas:
+• ReactApp. :heavy_check_mark: <br/>
+• Docker CLI e Docker Desktop. :heavy_check_mark: <br/>
+• Heroku CLI. :heavy_check_mark: <br/>
+• Versionamento em repositório público (Github). :heavy_check_mark: <br/>
+• Instruções para rodar o projeto (README). :heavy_check_mark: <br/>
 
-## Available Scripts
+### Matéria e professor:
+• Práticas de Engenharia de Software <br/>
+• Jean Paul Fonseca Lopes
 
-In the project directory, you can run:
+### Fontes:
+• https://developer.okta.com/blog/2020/06/24/heroku-docker-react
 
-### `npm start`
+### Comandos criados no package.json que serão utilizados no tutorial a seguir:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+ "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "docker-build": "docker build -t trabalhordh .",
+    "docker-run": "docker run -p 3000:80 trabalhordh",
+    "docker-tag": "docker tag trabalhordh registry.heroku.com/trabalhordh/web",
+    "docker-push": "docker push registry.heroku.com/trabalhordh/web",
+    "heroku-login": "heroku login",
+    "heroku-create": "heroku create trabalhordh",
+    "heroku-container-login": "heroku container:login",
+    "heroku-container-release": "heroku container:release web --remote heroku",
+    "heroku-open": "heroku open --remote heroku"
+  },
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+Não é necessario utilizar o comando NPM INSTALL após clonar o repositório pois é feito o build da aplicação 
+quando o docker criar a imagem. 
+```
 
-### `npm test`
+# Criando imagem e subindo container com docker
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `git clone https://github.com/viniciusfaitao/Trabalho-React-Docker-Heroku.git`
+- Faça clone do repositório
 
-### `npm run build`
+### `1 - Execute npm run docker-build`
+- Ao executar será buildado a aplicação e criada uma imagem chamada trabalhordh
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `2 - Execute npm run docker-run`
+- Ao executar será iniciado um container em localhost na porta 3000 com a imagem trabalhordh
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `3 - Entre na url http://localhost:3000/`
+- Nesta url voce verá a aplicação rodando corretamente
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+# Hospedando a imagem criada no heroku
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `1 - Execute npm run heroku-login`
+- Ao executar irá logar no ambiente do heroku, repare no seu cmd que é necessario clicar qualquer tecla quando for solicitado e irá 0abrir o heroku no seu browser, faça o login, após retorne ao cmd e verá que receberá um retorno de login com sucesso.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `2 - Execute npm run heroku-container-login`
+- Ao executar irá logal no container do heroku e voce receberá um retorno no proprio cmd escrito "Login Succeeded".
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `3 - Execute npm run heroku-create`
+- Ao executar será criada uma nova aplicação no heroku chamada trabalhordh, voce poderá acompanhar o processo pelo seu cmd e no retorno receberá a url do git do heroku e a url já acessivel, porem apenas com a mensagem "Welcome to your new app", ainda aguardando subir algo.
 
-## Learn More
+### `4 - Execute npm run docker-tag`
+- Ao executar será feito um registro da imagem e já subira o container automaticamente, voce pode verificar executando no cmd o comando "docker images".
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `5 - Execute npm run docker-push`
+- Ao executar será feito envio da imagem
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `6 - Execute npm run heroku-container-release`
+- Ao executar será feito deploy e hospedará a imagem no heroku, voce pode verificar que o seu site já estará funcionando se entrar no link https://trabalhordh.herokuapp.com/ ou se executar o proximo passo do tutorial.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### `7 - Execute npm run heroku-open`
+- aqui abrirá o ambiente do heroku automaticamente no seu browser.
