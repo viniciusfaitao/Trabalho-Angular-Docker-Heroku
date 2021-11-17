@@ -23,7 +23,7 @@
     "heroku-login": "heroku login",
     "heroku-create": "heroku create trabalhordh",
     "heroku-container-login": "heroku container:login",
-    "heroku-container-release": "heroku container:release web --remote docker",
+    "heroku-container-release": "heroku container:release web --remote heroku",
     "heroku-open": "heroku open --remote docker"
   },
   "eslintConfig": {
