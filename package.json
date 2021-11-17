@@ -16,8 +16,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "docker": "docker build -t trabalhordh .",
-    "trabalhordh": "docker run -p 3000:80 trabalhordh"
+    "docker-build": "docker build -t trabalhordh .",
+    "docker-run": "docker run -p 3000:80 trabalhordh",
+    "docker-tag": "docker tag trabalhordh registry.heroku.com/trabalhordh/web",
+    "docker-push": "docker push registry.heroku.com/trabalhordh/web",
+    "heroku-login": "heroku login",
+    "heroku-create": "heroku create trabalhordh",
+    "heroku-container-login": "heroku container:login",
+    "heroku-container-release": "heroku container:release web --remote docker",
+    "heroku-open": "heroku open --remote docker"
   },
   "eslintConfig": {
     "extends": [
