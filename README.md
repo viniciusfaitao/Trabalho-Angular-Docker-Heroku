@@ -39,6 +39,11 @@
   },
 ```
 
+### Necessario para funcionamento
+- <a href=“https://devcenter.heroku.com/articles/heroku-cli#download-and-install“>Heroku CLI</a>
+- <a href=“https://docs.docker.com/get-docker/“>Docker</a>
+
+
 ```
 Não é necessario utilizar o comando NPM INSTALL após clonar o repositório pois é feito o build da aplicação 
 quando o docker criar a imagem. 
