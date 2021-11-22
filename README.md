@@ -51,8 +51,8 @@ quando o docker criar a imagem.
 
 # Criando imagem e subindo container com docker
 
-### `git clone https://github.com/viniciusfaitao/Trabalho-React-Docker-Heroku.git`
 - Faça clone do repositório
+### `git clone https://github.com/viniciusfaitao/Trabalho-React-Docker-Heroku.git`
 
 ### `1 - Execute npm run docker-build`
 - Ao executar será buildado a aplicação e criada uma imagem chamada trabalhordh
